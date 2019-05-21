@@ -23,10 +23,9 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         mList = list;
         mContext = context;
     }
-    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_custom, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder( ViewGroup parent, int i) {
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_custom, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(v);
 
@@ -34,7 +33,7 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder( RecyclerView.ViewHolder viewHolder, int position) {
         ItemAdapter itemAdapter = mList.get(position);
         ((ViewHolder) viewHolder).mTv_name.setText(itemAdapter.getText());
         ((ViewHolder) viewHolder).mImg.setImageResource(itemAdapter.getImage());

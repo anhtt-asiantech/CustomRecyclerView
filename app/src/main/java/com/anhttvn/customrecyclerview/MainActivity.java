@@ -2,7 +2,9 @@ package com.anhttvn.customrecyclerview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.anhttvn.customrecyclerview.adapter.ListAdapter;
 import com.anhttvn.customrecyclerview.model.ItemAdapter;
@@ -65,8 +67,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adapter(){
+        Log.d("anhtt","mlist : " +mList.size());
         mAdapter = new ListAdapter(mList, this);
         mRecycleview.setAdapter(mAdapter);
+        mRecycleview.setLayoutManager(new LinearLayoutManager(this));
         mAdapter.notifyDataSetChanged();
+
     }
 }
